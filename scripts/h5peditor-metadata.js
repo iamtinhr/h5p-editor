@@ -147,7 +147,7 @@ H5PEditor.MetadataForm = (function (EventDispatcher, $, metadataSemantics) {
       }
       wrapper.classList[self.isA11yExpanded ? 'remove' : 'add']('hide');
       self.a11yTitleText.innerHTML = self.isA11yExpanded
-        ? t('a11yTitleHideLabel') : t('a11yTitleShowLabel');
+          ? t('a11yTitleHideLabel') : t('a11yTitleShowLabel');
       wrapper.setAttribute('aria-hidden', !self.isA11yExpanded);
     }
 
@@ -192,8 +192,8 @@ H5PEditor.MetadataForm = (function (EventDispatcher, $, metadataSemantics) {
       sourceField.$item.on('change', function () {
         const sourceInput = $(this).find('input.h5peditor-text');
         if (sourceInput.val().trim() !== '' &&
-          sourceInput.val().indexOf('https://') !== 0 &&
-          sourceInput.val().indexOf('http://') !== 0
+            sourceInput.val().indexOf('https://') !== 0 &&
+            sourceInput.val().indexOf('http://') !== 0
         ) {
           sourceInput.val('http://' + sourceInput.val()).trigger('change');
         }
@@ -205,17 +205,17 @@ H5PEditor.MetadataForm = (function (EventDispatcher, $, metadataSemantics) {
     });
 
     const $wrapper = $(
-      '<div class="h5p-metadata-wrapper">' +
+        '<div class="h5p-metadata-wrapper">' +
         '<div class="h5p-metadata-header">' +
-          '<div class="h5p-title-container">' +
-            '<h2>' + t('metadataSharingAndLicensingInfo') + '</h2>' +
-            '<p>' + t('fillInTheFieldsBelow') + '</p>' +
-          '</div>' +
-          '<div class="metadata-button-wrapper">' +
-            '<button href="#" class="h5p-metadata-button h5p-save">' + t('saveMetadata') + '</button>' +
-          '</div>' +
+        '<div class="h5p-title-container">' +
+        '<h2>' + t('metadataSharingAndLicensingInfo') + '</h2>' +
+        '<p>' + t('fillInTheFieldsBelow') + '</p>' +
         '</div>' +
-      '</div>');
+        '<div class="metadata-button-wrapper">' +
+        '<button href="#" class="h5p-metadata-button h5p-save">' + t('saveMetadata') + '</button>' +
+        '</div>' +
+        '</div>' +
+        '</div>');
 
     // Handle click on save button
     $wrapper.find('.h5p-save').click(handleSaveButtonClick);
@@ -228,16 +228,16 @@ H5PEditor.MetadataForm = (function (EventDispatcher, $, metadataSemantics) {
     $wrapper.appendTo($overlay);
 
     const $button = $(
-      '<div role="button" tabindex="0" class="h5p-metadata-button-wrapper">' +
+        '<div role="button" tabindex="0" class="h5p-metadata-button-wrapper">' +
         '<div class="h5p-metadata-button-tip"></div>' +
         '<div class="h5p-metadata-toggler">' + t('metadata') + '</div>' +
-      '</div>')
-      .click(openPopup)
-      .keydown(function (event) {
-        if (event.which == 13 || event.which == 32) {
-          openPopup(event);
-        }
-      });
+        '</div>')
+        .click(openPopup)
+        .keydown(function (event) {
+          if (event.which == 13 || event.which == 32) {
+            openPopup(event);
+          }
+        });
 
     /**
      * Handle ready callbacks from children
@@ -320,7 +320,7 @@ H5PEditor.MetadataForm = (function (EventDispatcher, $, metadataSemantics) {
     // Append the Additional information group
     var additionals = new H5PEditor.widgets.group(self, {
       name: 'additionals',
-      label: 'Additional information', // TODO: l10n ?
+      label: t('additionalInformation'), // TODO: l10n ?
       fields: [
         findField('authorComments')
       ]
